@@ -4,17 +4,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 import logging
 from kb.kb_client import one_marcup, bs_marcup, menu
 import random
-#from handlers.functwo import register_handlers_extra  # Импортируем функции из вашего файла handlers
-#from handlers.funcone import register_handlers_extra1  # Импортируем функции из вашего файла handlers
-#from handlers.functhree import register_handlers_extraa  # Импортируем функции из вашего файла handlers
-#from handlers.funcfour import register_handlers_extras
 from aiogram import types
-from aiogram.dispatcher.filters import Command
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-# logging.basicConfig(level=logging.INFO)
-# register_handlers_extra1(dp)
-# register_handlers_extraa(dp)
-# register_handlers_extras(dp)
 from aiogram.utils import executor
 from config import bot
 
@@ -89,7 +79,10 @@ async def answer_end(message: types.Message, state: FSMContext):
                 "PUBG:\n"
                 "https://t.me/pubggoturnir\n"
                 "BRAWLSTARS:\n"
-                "https://t.me/goturnirbrawlstars\n", reply_markup=menu)
+                "https://t.me/goturnirbrawlstars\n"
+                "\n"
+                "Для новой регистрации отправьте команду (/start)\n"
+                "\n", reply_markup=menu)
         except Exception as e:
             logging.error(f"Ошибка отправки сообщения пользователю: {e}")
 
