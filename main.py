@@ -3,11 +3,12 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 import logging
 from kb.kb_client import one_marcup, bs_marcup, menu
-import random
 from aiogram import types
 from aiogram.utils import executor
 from config import bot
-
+from aiogram import types
+import asyncio
+import random
 class Test(StatesGroup):
     a2 = State()
     BS = State()
@@ -91,4 +92,5 @@ async def answer_end(message: types.Message, state: FSMContext):
         await message.answer("Пожалуйста, выберите режим турнира: [ОДИНОЧНЫЙ] [КОМАНДНЫЙ]")
 
 if __name__ == '__main__':
+    from aiogram import executor
     executor.start_polling(dp, skip_updates=True)
